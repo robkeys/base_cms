@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170412225053) do
     t.integer  "page_id"
     t.string   "name"
     t.integer  "position"
-    t.boolean  "visible"
+    t.boolean  "is_visible"
     t.string   "content_type"
     t.text     "content",      limit: 65535
     t.datetime "created_at",                 null: false
