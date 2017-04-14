@@ -1,0 +1,150 @@
+// Primary sylesheet
+
+// Colors
+$red: #993120;
+$bright-red: #f00;
+$dark-red: #a00;
+$green: #94b26f;
+$dark-green: #008000;
+$light-green: #b6d491;
+$yellow: #f2dc87;
+$dark-brown: #332318;
+$light-brown: #4c2516;
+$black: #000;
+$dark-grey: #333;
+$grey: #666;
+$white: #fff;
+
+$sans-serif: Verdana, Lucinda, Arial, Helvetica, sans-serif;
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  color: $dark-brown;
+  font: 14px $sans-serif;
+  height: 100%;
+  margin: 0;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+p, td, ul, ol, li, dl, dt, dd {
+  font-family: $sans-serif;
+}
+
+img {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table tr td, table tr th {
+  padding: 3px;
+  text-align: left;
+  vertical-align: top;
+}
+
+a {
+  color: $red;
+
+  &:visited {
+    color: $red;
+  }
+
+  &:hover {
+    color: $red;
+  }
+}
+
+.clear {
+  clear: both;
+}
+
+.center {
+  text-align: center;
+}
+
+// Structure
+#header {
+  background: $red;
+  color: $white;
+  height: 9%;
+  padding-top: 1%;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+#main {
+  background: $yellow;
+  height: 85%;
+  min-height: 500px;
+}
+
+#navigation {
+  background: $green;
+  color: $light-brown;
+  float: left;
+  min-height: 1480px;
+  padding: 10px;
+  width: 180px;
+}
+
+#content {
+  padding: 10px;
+}
+
+#footer {
+  background: $light-brown image-url('/assets/footer_gradient.png') repeat-y 0 0;
+  clear: both;
+  color: $yellow;
+  height: 5%;
+  text-align: right;
+
+  p {
+    margin: 0;
+    padding: .5em 1em;
+  }
+}
+
+#navigation {
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-bottom: .5em;
+    }
+
+    ul {
+      font-size: .9em;
+      margin: .5em 0 0 1em;
+    }
+  }
+
+  a {
+    padding: 1px 3px;
+    text-decoration: none;
+
+    &:hover {
+      background: $yellow;
+    }
+  }
+}
+
+#content {
+  h2 {
+    color: $light-brown;
+  }
+}

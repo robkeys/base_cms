@@ -1,0 +1,214 @@
+// Admin Additional Styles
+// load after primary.css.scss
+
+// Colors
+$red: #993120;
+$bright-red: #f00;
+$dark-red: #a00;
+$green: #94b26f;
+$dark-green: #008000;
+$light-green: #b6d491;
+$yellow: #f2dc87;
+$dark-brown: #332318;
+$light-brown: #4c2516;
+$black: #000;
+$dark-grey: #333;
+$grey: #666;
+$white: #fff;
+
+$sans-serif: Verdana, Lucinda, Arial, Helvetica, sans-serif;
+
+// Structure
+#content {
+  padding-left: 100px;
+  padding-right: 100px;
+
+  h2 {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.login {
+  form {
+    margin: 100px 250px;
+  }
+}
+
+.menu {
+  .identity {
+    text-align: center;
+  }
+
+  ul {
+    list-style: none;
+    margin: 3em 250px;
+
+    li {
+      margin-bottom: 1em;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  // large action buttons
+  .action {
+    .large {
+      background: $green;
+      border: 1px solid $light-brown;
+      color: $light-brown;
+      float: right;
+      font-size: .8em;
+      margin: 0 0 1em 1em;
+      padding: 2px 5px;
+      text-align: center;
+      text-decoration: none;
+
+      &:hover {
+        background: $light-green;
+      }
+    }
+  }
+}
+
+// small action buttons
+.actions {
+  width: 200px;
+
+  a {
+    .action {
+      float: left;
+      font-size: .7em;
+      margin: 2px 5px;
+      min-width: 3.5em;
+      padding: 1px 2px;
+    }
+  }
+}
+
+// CRUD
+.notice {
+  background: $light-green;
+  color: $light-brown;
+  height: 1.25em;
+  padding: .5em;
+  text-align: center;
+}
+
+.back-link {
+  font-size: .8em;
+  margin-bottom: 1em;
+}
+
+.form-buttons {
+  margin: 1em 0;
+  text-align: center;
+}
+
+.index {
+  table {
+    clear: both;
+    width: 100%;
+
+    tr {
+      td {
+        border: 1px solid $grey;
+      }
+    }
+  }
+}
+
+.show {
+  table {
+    clear: both;
+    margin: 0 200px;
+    width: 300px;
+
+    &.wide {
+      margin: 0 50px;
+      width: 600px;
+    }
+
+    tr {
+      th {
+        padding-right: 5px;
+        white-space: nowrap;
+      }
+
+      td {
+        border: 1px solid $grey;
+      }
+    }
+  }
+}
+
+// status tag
+.status {
+  alignment: center;
+  border: 1px solid $black;
+  display: block;
+  height: 10px;
+  margin: .25em auto;
+  padding: 0;
+  width: 10px;
+
+  &.true {
+    background: $dark-green;
+    color: $dark-green;
+  }
+
+  &.false {
+    background: $bright-red;
+    color: $bright-red;
+  }
+}
+
+// errors
+.field-with-errors {
+  label {
+    color: $dark-red;
+  }
+
+  input {
+    border: 1px solid $dark-red;
+  }
+}
+
+#error-explanation {
+  background-color: $white;
+  border: 1px solid $dark-red;
+  font-size: 12px;
+  margin: 0 auto 1.5em;
+  padding: 0;
+  width: 400px;
+
+  h2 {
+    background-color: $dark-red;
+    color: $white;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px 5px 5px 15px;
+    width: 380px;
+  }
+
+  p {
+    color: $dark-grey;
+    margin: 0;
+    padding: 3px .5em;
+  }
+
+  ul {
+    margin-top: 0;
+
+    li {
+      list-style: square;
+    }
+  }
+}
