@@ -40,8 +40,10 @@ GEM
       tzinfo (~> 1.1)
     arel (7.1.4)
     bcrypt (3.1.11)
+    bcrypt (3.1.11-x64-mingw32)
     bindex (0.5.0)
     builder (3.2.3)
+    byebug (9.0.6)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -73,8 +75,11 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    mysql2 (0.4.5)
     mysql2 (0.4.5-x64-mingw32)
     nio4r (2.0.0)
+    nokogiri (1.7.1)
+      mini_portile2 (~> 2.1.0)
     nokogiri (1.7.1-x64-mingw32)
       mini_portile2 (~> 2.1.0)
     puma (3.8.2)
@@ -141,6 +146,7 @@ GEM
     websocket-extensions (0.1.2)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
