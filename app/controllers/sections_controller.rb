@@ -1,4 +1,4 @@
-class SectionsController < ApplicationController
+class SectionsController < AdminAreaController
 
   layout 'admin'
 

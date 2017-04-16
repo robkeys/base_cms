@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  has_secure_password
+
   # Rails guesses table wrong for HABTM relationship. :join_table option fixes this.
   has_and_belongs_to_many :pages, :join_table => :users_pages
   has_many :section_edits
