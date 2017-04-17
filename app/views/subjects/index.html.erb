@@ -1,9 +1,10 @@
 <% @page_title = "All Subjects" %>
 
+<%= link_to("Return to Menu", access_menu_path, :class => 'back-link') %>
+
 <div class ="subjects index">
   <h2>Subjects</h2>
 
-  <%= link_to("Return to Menu", access_menu_path) %><br><br>
   <%= image_tag('plus_sign.png', :size => '11x11', :alt => '+') %>
   <%= link_to("Add New Subject", new_subject_path, :class => 'action new') %>
 

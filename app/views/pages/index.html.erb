@@ -1,9 +1,10 @@
 <% @page_title = "All Pages" %>
 
+<%= link_to("Return to Menu", access_menu_path, :class => 'back-link') %>
+
 <div class ="pages index">
   <h2>Pages</h2>
 
-  <%= link_to("Return to Menu", access_menu_path) %><br><br>
   <%= image_tag('plus_sign.png', :size => '11x11', :alt => '+') %>
   <%= link_to("Add New Page", new_page_path, :class => 'action new') %>
 

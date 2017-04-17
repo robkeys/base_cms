@@ -2,22 +2,22 @@
 
 <table summary="User form fields">
   <tr>
-    <th>First Name</th>
+    <th><%= f.label(:first_name) %></th>
     <td><%= f.text_field(:first_name) %></td>
   </tr>  <tr>
-  <th>Last Name</th>
+  <th><%= f.label(:last_name) %></th>
   <td><%= f.text_field(:last_name) %></td>
   </tr>
   <tr>
-    <th>Site Admin</th>
+    <th><%= f.label(:is_site_admin) %></th>
     <td><%= f.check_box(:is_site_admin) %></td>
   </tr>
   <tr>
-    <th>Account Name</th>
+    <th><%= f.label(:user_name) %></th>
     <td><%= f.text_field(:user_name) %></td>
   </tr>
   <tr>
-    <th>Email Address</th>
+    <th><%= f.label(:email) %></th>
     <td><%= f.text_field(:email) %></td>
   </tr>
   <tr>
@@ -25,7 +25,7 @@
     <td><%= f.password_field(:password) %></td>
   </tr>
   <tr>
-    <th>Confirm Password</th>
+    <td>&nbsp;</td>
     <td><%= f.password_field(:password_confirmation) %></td>
   </tr>
   <tr>
