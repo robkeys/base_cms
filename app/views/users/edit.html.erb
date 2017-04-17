@@ -1,0 +1,18 @@
+<% @page_title = "Edit User" %>
+
+<%= link_to("<< Back to List", users_path, :class => 'back_link') %>
+
+<div class="users edit">
+  <H2>Edit User</H2>
+
+  <%= form_for(@user) do |f| %>
+
+      <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+      <div class="form-buttons">
+        <%= f.submit("Update User") %>
+      </div>
+
+  <% end %>
+
+</div>

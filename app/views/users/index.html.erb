@@ -1,0 +1,33 @@
+<% @page_title = "All Users" %>
+
+<div class ="users index">
+  <h2>Users</h2>
+
+  <%= link_to("Return to Menu", access_menu_path) %><br><br>
+  <%= image_tag('plus_sign.png', :size => '11x11', :alt => '+') %>
+  <%= link_to("Add New User", new_user_path, :class => 'action new') %>
+
+  <table class="listing" summary="User list">
+    <tr class="header">
+      <th>#</th>
+      <th>User</th>
+      <th>Admin</th>
+      <th>Account Name</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+    <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.name %></td>
+          <td class="center"><%= status_tag(user.is_site_admin) %></td>
+          <td class="center"><%= user.user_name %></td>
+          <td class="center"><%= user.email %></td>
+          <td class="actions">
+            <%= link_to("Edit", edit_user_path(user), :class => 'action edit') %>
+            <%= link_to("Delete", delete_user_path(user), :class => 'action delete') %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>

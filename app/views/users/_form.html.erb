@@ -1,0 +1,35 @@
+<%= error_messages_for(f.object) %>
+
+<table summary="User form fields">
+  <tr>
+    <th>First Name</th>
+    <td><%= f.text_field(:first_name) %></td>
+  </tr>  <tr>
+  <th>Last Name</th>
+  <td><%= f.text_field(:last_name) %></td>
+  </tr>
+  <tr>
+    <th>Site Admin</th>
+    <td><%= f.check_box(:is_site_admin) %></td>
+  </tr>
+  <tr>
+    <th>Account Name</th>
+    <td><%= f.text_field(:user_name) %></td>
+  </tr>
+  <tr>
+    <th>Email Address</th>
+    <td><%= f.text_field(:email) %></td>
+  </tr>
+  <tr>
+    <th>Password</th>
+    <td><%= f.password_field(:password) %></td>
+  </tr>
+  <tr>
+    <th>Confirm Password</th>
+    <td><%= f.password_field(:password_confirmation) %></td>
+  </tr>
+  <tr>
+    <th>Created</th>
+    <td><%= f.datetime_select(:created_at, :order => [:month, :day, :year]) %></td>
+  </tr>
+</table>
