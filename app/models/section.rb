@@ -1,5 +1,7 @@
 class Section < ApplicationRecord
 
+  acts_as_list :scope => :page
+
   belongs_to :page, { :optional => true }
   has_many :section_edits
   has_many :users, :through => :section_edits

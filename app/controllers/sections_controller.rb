@@ -2,11 +2,12 @@ class SectionsController < AdminAreaController
 
   layout 'admin'
 
+  before_action :find_page
   before_action :find_pages, :only => [:new, :create, :edit, :update]
   before_action :set_section_count, :only => [:new, :create, :edit, :update]
 
   def index
-    @sections = Section.sorted
+    @sections = @page.sections.sorted
   end
 
   def show
@@ -14,7 +15,7 @@ class SectionsController < AdminAreaController
   end
 
   def new
-    @section = Section.new({:name => "Default"})
+    @section = Section.new(:page_id => @page.id)
   end
 
   def create
@@ -24,7 +25,10 @@ class SectionsController < AdminAreaController
     if @section.save
       # if save succeeds rediriect to the index action
       flash[:notice] = "Section created successfully."
-      redirect_to(sections_path)
+      if @section.page_id != @page.id
+        @page = Page.find(@section.page_id)
+      end
+      redirect_to(sections_path(:page_id => @page.id))
     else
       # if save fails display again using render so form data remains
       render('new')
@@ -42,7 +46,7 @@ class SectionsController < AdminAreaController
     if @section.update_attributes(section_params)
       # If delete succeeds, redirect to the index action
       flash[:notice] = "Section updated successfully."
-      redirect_to(section_path(@section))
+      redirect_to(section_path(@section, :page_id => @page.id))
     else
       # if delete fails display again.
       render('edit')
@@ -61,7 +65,7 @@ class SectionsController < AdminAreaController
     if @section.destroy
       # If delete succeeds, redirect to the index action
       flash[:notice] = "Section '#{@section.name}' successfully."
-      redirect_to(sections_path)
+      redirect_to(sections_path(:page_id => @page.id))
     else
       # if delete fails display again.
       render('delete')
@@ -74,12 +78,16 @@ class SectionsController < AdminAreaController
     params.require(:section).permit(:name, :page_id, :position, :is_visible, :content_type, :content)
   end
 
+  def find_page
+    @page = Page.find(params[:page_id])
+  end
+
   def find_pages
     @pages = Page.sorted
   end
 
   def set_section_count
-    @section_count = Section.count
+    @section_count = @page.sections.count
     if params[:action] == 'new' || params[:action] == 'create'
       @section_count += 1
     end

@@ -88,14 +88,17 @@ a {
   background: $yellow;
   height: 85%;
   min-height: 500px;
+  overflow: hidden;
 }
 
 #navigation {
   background: $green;
   color: $light-brown;
   float: left;
-  min-height: 1480px;
+  margin-bottom: -100%;
+  min-height: 500px;
   padding: 10px;
+  padding-bottom: 100%;
   width: 180px;
 }
 

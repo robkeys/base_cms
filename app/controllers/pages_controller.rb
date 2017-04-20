@@ -2,11 +2,12 @@ class PagesController < AdminAreaController
 
   layout 'admin'
 
+  before_action :find_subject
   before_action :find_subjects, :only => [:new, :create, :edit, :update]
-  before_action :set_page_count, :only => [:new, :create, :edit, :update]
+  before_action :set_page_count, only: [:new, :create, :edit, :update]
 
   def index
-    @pages = Page.all
+    @pages = @subject.pages.sorted
   end
 
   def show
@@ -14,7 +15,7 @@ class PagesController < AdminAreaController
   end
 
   def new
-    @page = Page.new
+    @page = Page.new(:subject_id => @subject.id)
   end
 
   def create
@@ -24,7 +25,10 @@ class PagesController < AdminAreaController
     if @page.save
       # if save succeeds rediriect to the index action
       flash[:notice] = "Page created successfully."
-      redirect_to(pages_path)
+      if @page.subject_id != @subject.id
+        @subject = Subject.find(@page.subject_id)
+      end
+      redirect_to(pages_path(:subject_id => @subject.id))
     else
       # if save fails display again using render so form data remains
       render('new')
@@ -33,7 +37,6 @@ class PagesController < AdminAreaController
 
   def edit
     @page = Page.find(params[:id])
-    @page_count = Page.count
   end
 
   def update
@@ -43,7 +46,7 @@ class PagesController < AdminAreaController
     if @page.update(page_params)
       # If save succeeds, redirect to the show action
       flash[:notice] = "Page updated successfully."
-      redirect_to(page_path)
+      redirect_to(page_path(@page, :subject_id => @subject.id))
     else
       # if save fails display again using render so form data remains
       render('edit')
@@ -61,7 +64,7 @@ class PagesController < AdminAreaController
     if @page.destroy
       # If delete succeeds, redirect to the index action
       flash[:notice] = "Page deleted successfully."
-      redirect_to(pages_path)
+      redirect_to(pages_path(:subject_id => @subject.id))
     else
       # if delete fails display again.
       render('delete')
@@ -74,12 +77,17 @@ def page_params
   params.require(:page).permit(:name, :subject_id, :position, :is_visible, :permalink)
 end
 
+def find_subject
+  @subject = Subject.find(params[:subject_id])
+end
+
 def find_subjects
   @subjects = Subject.sorted
 end
 
 def set_page_count
-  @page_count = Page.count
+  @page_count = @subject.pages.count
+  @pages_count = @subject.pages.count
   if params[:action] == 'new' || params[:action] == 'create'
     @page_count += 1
   end
